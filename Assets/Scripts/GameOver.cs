@@ -1,0 +1,39 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameOver : MonoBehaviour {
+
+    public string mainMenuScene;
+    public string loadGameScene;
+
+	// Use this for initialization
+	void Start () {
+        
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+
+    public void QuitToMain()
+    {
+        Destroy(GameManager.instance.gameObject);
+        Destroy(PlayerController.instance.gameObject);
+        Destroy(GameMenu.instance.gameObject);        
+        Destroy(BattleManager.instance.gameObject);
+
+        SceneManager.LoadScene(mainMenuScene);
+    }
+
+    public void LoadLastSave()
+    {
+        Destroy(GameManager.instance.gameObject);
+        Destroy(PlayerController.instance.gameObject);
+        Destroy(GameMenu.instance.gameObject);       
+
+        SceneManager.LoadScene(loadGameScene);
+    }
+}
